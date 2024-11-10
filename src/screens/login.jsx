@@ -33,30 +33,31 @@ function Login() {
 
 
   const loginHandler = () => {
-    setLoading(true);
-    const apiUrl = 'user/login/';
-    api.post(
-      apiUrl,
-      {
-        password: password,
-        phone: phone,
-        getHeaders,
-      }
-    ).
-      then((response) => {
-        toast.success(response.data.message);
-        console.log(response.data.data)
-        dispatch(addUser(response.data.data))
-        console.log(response.data.data)
-        localStorage.setItem('userData', JSON.stringify(response.data.data));
-        navigate('/user')
-      }).
-      catch((error) => {
-        console.log(error)
-        toast.error(error.response.data.message);
-      }).finally(() => {
-        setLoading(false);
-      })
+    navigate('/user')
+    // setLoading(true);
+    // const apiUrl = 'user/login/';
+    // api.post(
+    //   apiUrl,
+    //   {
+    //     password: password,
+    //     phone: phone,
+    //     getHeaders,
+    //   }
+    // ).
+    //   then((response) => {
+    //     toast.success(response.data.message);
+    //     console.log(response.data.data)
+    //     dispatch(addUser(response.data.data))
+    //     console.log(response.data.data)
+    //     localStorage.setItem('userData', JSON.stringify(response.data.data));
+    //     navigate('/user')
+    //   }).
+    //   catch((error) => {
+    //     console.log(error)
+    //     toast.error(error.response.data.message);
+    //   }).finally(() => {
+    //     setLoading(false);
+    //   })
   }
 
 
@@ -130,7 +131,7 @@ function Login() {
           </div>
         </div>
         <div className="container loginImageContainer">
-          <img src={loginImage} alt="" className='img-fluid' />
+          <img src={loginImg} alt="" className='img-fluid' />
         </div>
       </div>
 

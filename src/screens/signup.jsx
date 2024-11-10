@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-import signupImg from '../assetes/signup.png'
+import signupImg from '../assetes/signUpImage.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';

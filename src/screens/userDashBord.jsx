@@ -49,23 +49,14 @@ function UserDashBord() {
                     <h1>Hello <strong>{data[0].first_name}</strong>,</h1>
                     <h6>Welcome Back Again.</h6>
                 </div>
-                <ShowBankBalance visiblePin={visiblePin} setVisiblePin={setVisiblePin} balance={balance} setBalance={setBalance} />
-                <div className="container checkAmountBlock d-flex flex-row card  float-left justify-content-between align-items-center">
-                    <h3 className='text-center  text-muted mb-0'>Balance: <strong>{balance}</strong></h3>
-                   <div>
-                    <button className='btn btn-outline-success mx-2' onClick={checkBankBalance}>Check</button>
-                    <button className='btn btn-outline-danger' onClick={()=>{
-                        setBalance("****.**")
-                    }}>Hide</button>
-                   </div>
-                </div>
+                
 
                 <div className="container p-1">
                     <h3 className='m-3'>Checkout the Following <strong>Services</strong>....</h3>
                     <ServicesCard />
                 </div>
                 <div className="container mt-5">
-                    <h3>Checkout Previous <strong>Transactions</strong>...</h3>
+                    {/* <h3>Checkout Previous <strong>Transactions</strong>...</h3> */}
                 </div>
                 <Footer />
             </div>):

@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Login,Contact,UserDashBord,Home,Signup, UpdateProfile,OpenAccountScreen } from './screens/index';
+import { Login,Contact,UserDashBord,Home,Signup, UpdateProfile,OpenAccountScreen,BrainTumarDetection } from './screens/index';
 function App() {
   return (
     <div className="page-body">
@@ -14,6 +14,7 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/update-profile" element={<UpdateProfile/>} />
         <Route path="/create-account" element={<OpenAccountScreen/>} />
+        <Route path="/upload-image" element={<BrainTumarDetection/>} />
       </Routes>
     </BrowserRouter>
     </div>

@@ -26,7 +26,7 @@ function Navbar() {
               <Link className="nav-link" to="/contact">Contact Us</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" >Make Payment</Link>
+              <Link className="nav-link" >Check Disclaimer</Link>
             </li>
           </ul>
           <div className="d-flex">

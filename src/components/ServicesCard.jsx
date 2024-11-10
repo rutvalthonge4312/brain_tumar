@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-import recharge from '../assetes/recharge.png'
-import transaction from '../assetes/transaction.png'
-import balance from '../assetes/balance.png'
+import reports from '../assetes/report.png'
+import brainTest from '../assetes/brain_tumar_detection.webp'
+import consult from '../assetes/consult.webp'
 import update from '../assetes/update.png'
 import CreditMoney from './modals/creditMoney';
 import { useNavigate } from 'react-router-dom';
@@ -10,34 +10,35 @@ import { useNavigate } from 'react-router-dom';
 
 const cardData = [
     {
-        img: transaction,
-        title: "Pay to Mobile Number",
-        buttonText:"Send Money",
-        stateChangeVariable:"transaction",
-        text: "Easily transfer money to any mobile number. Fast, secure, and reliable transactions at your fingertips.",
+        img: reports,
+        title: "View Previous Reports",
+        buttonText: "View Reports",
+        stateChangeVariable: "reports",
+        text: "Access past diagnostic reports quickly and securely. Keep track of historical data for better analysis.",
     },
     {
-        img: recharge,
-        title: "Recharge Mobile Number",
-        buttonText:"Recharge Mobile",
-        stateChangeVariable:"recharge",
-        text: "Instantly recharge any mobile number. Conveniently top up your balance anytime.",
+        img: brainTest,
+        title: "Brain Health Test",
+        buttonText: "Start Test",
+        stateChangeVariable: "brainTest",
+        text: "Take a quick brain health assessment to monitor potential signs of issues. Gain insights in minutes.",
     },
     {
-        img: balance,
-        title: "Balance Check!",
-        buttonText:"Check Balance",
-        stateChangeVariable:"balance",
-        text: "Keep track of your account balance with ease. Quick access to your latest financial information.",
+        img: consult,
+        title: "Consult with Experts",
+        buttonText: "Ask Questions",
+        stateChangeVariable: "consult",
+        text: "Connect with medical experts for guidance and support. Get answers to your questions about brain health.",
     },
     {
         img: update,
-        title: "Account Update!",
-        buttonText:"update",
-        stateChangeVariable:"update",
-        text: "Stay updated with the latest account changes. Get notifications and make adjustments on the go.",
+        title: "Update Your Profile",
+        buttonText: "Update",
+        stateChangeVariable: "update",
+        text: "Keep your profile and health information up to date for personalized assessments and accurate tracking.",
     }
 ];
+
 
 function ServicesCard() {
     const [index, setIndex] = useState(0);
@@ -78,6 +79,9 @@ function ServicesCard() {
                                     }
                                     else if(card.stateChangeVariable=='update'){
                                         navigate('/update-profile');
+                                    }
+                                    else if(card.stateChangeVariable=='brainTest'){
+                                        navigate('/upload-image')
                                     }
                                 }}
                                 >{card.buttonText}</button>
