@@ -33,31 +33,31 @@ function Login() {
 
 
   const loginHandler = () => {
-    navigate('/user')
-    // setLoading(true);
-    // const apiUrl = 'user/login/';
-    // api.post(
-    //   apiUrl,
-    //   {
-    //     password: password,
-    //     phone: phone,
-    //     getHeaders,
-    //   }
-    // ).
-    //   then((response) => {
-    //     toast.success(response.data.message);
-    //     console.log(response.data.data)
-    //     dispatch(addUser(response.data.data))
-    //     console.log(response.data.data)
-    //     localStorage.setItem('userData', JSON.stringify(response.data.data));
-    //     navigate('/user')
-    //   }).
-    //   catch((error) => {
-    //     console.log(error)
-    //     toast.error(error.response.data.message);
-    //   }).finally(() => {
-    //     setLoading(false);
-    //   })
+    // navigate('/user')
+    setLoading(true);
+    const apiUrl = 'user/login/';
+    api.post(
+      apiUrl,
+      {
+        password: password,
+        phone: phone,
+        getHeaders,
+      }
+    ).
+      then((response) => {
+        toast.success(response.data.message);
+        console.log(response.data.data)
+        dispatch(addUser(response.data.data))
+        console.log(response.data.data)
+        localStorage.setItem('userData', JSON.stringify(response.data.data));
+        navigate('/user')
+      }).
+      catch((error) => {
+        console.log(error)
+        toast.error(error.response.data.message);
+      }).finally(() => {
+        setLoading(false);
+      })
   }
 
 
@@ -70,7 +70,7 @@ function Login() {
       <ToastContainer />
       <MobileLogin visiblePin={showMobileLogin} setVisiblePin={setShowMobileLogin} />
       <div className="container d-flex loginForm position-relative border shadow p-3 mt-5">
-        <div className='container'>
+        <div data-aos="fade-right" className='container'>
           <div className="p-3">
             <div className="form-floating mb-3">
               <input type="number" className="form-control" id="floatingInput" placeholder="98XXXXXXXXXX"
@@ -130,7 +130,7 @@ function Login() {
             </div>
           </div>
         </div>
-        <div className="container loginImageContainer">
+        <div data-aos="fade-left" className="container loginImageContainer">
           <img src={loginImg} alt="" className='img-fluid' />
         </div>
       </div>

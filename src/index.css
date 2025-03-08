@@ -223,3 +223,10 @@ strong{
   }
   
 }
+
+
+.image-upload-card{
+  border:10px solid green;
+  background: rgb(240, 240, 240);
+  border-radius: 15px;
+}

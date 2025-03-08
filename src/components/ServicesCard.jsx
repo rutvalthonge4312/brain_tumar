@@ -64,10 +64,10 @@ function ServicesCard() {
         <div className="carousel-container  mt-3 p-4" >
             <CreditMoney visiblePin={visibleTrasaction} setVisiblePin={setVisibleTrasaction} />
             <button className="carousel-control prev" onClick={handlePrev}>‹</button>
-            <div className="carousel-inner d-flex justify-content-center align-items-center p-5  p-5">
+            <div className="carousel-inner  d-flex justify-content-center align-items-center p-5  p-5">
                 {visibleCards.map((card, i) => (
                     <div key={i} className={`card-container ${i === 1 ? 'active' : ''}`}>
-                        <div className="card rounded shadow p-3 border border-none" style={{ width: '23rem' }}>
+                        <div className="card service-card rounded shadow p-3 " style={{ width: '23rem' }}>
                             <img src={card.img} className="card-img-top" alt={card.title} />
                             <h4>{card.title}</h4>
                             <p>{card.text}</p>
@@ -82,6 +82,9 @@ function ServicesCard() {
                                     }
                                     else if(card.stateChangeVariable=='brainTest'){
                                         navigate('/upload-image')
+                                    }
+                                    else if(card.stateChangeVariable=='reports'){
+                                        navigate('/report-card')
                                     }
                                 }}
                                 >{card.buttonText}</button>

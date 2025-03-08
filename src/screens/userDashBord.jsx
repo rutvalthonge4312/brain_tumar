@@ -51,7 +51,7 @@ function UserDashBord() {
                 </div>
                 
 
-                <div className="container p-1">
+                <div data-aos="fade-up" className="container p-1">
                     <h3 className='m-3'>Checkout the Following <strong>Services</strong>....</h3>
                     <ServicesCard />
                 </div>

@@ -11,18 +11,18 @@ function HomeInfo() {
   }
   return (
     <div className="container">
-      <div className="col-md-12 homeInfo d-flex justify-content-center align-items-center">
-        <div className=' p-3'>
-          <h2 className='my-4'>Digital banking Made for <strong>Digital</strong> User's</h2>
-          <p className='my-4'>Gopay is an all-in-one mobile banking app chock full of all the tools, tips, and tricks you need to take control of your finances,</p>
+      <div  className="col-md-12 homeInfo d-flex justify-content-center align-items-center">
+        <div  data-aos="fade-right" className=' p-3'>
+          <h2 className='my-4'>Advanced Detection, Empowering Life: Brain Tumor Diagnosis for a <strong>Digital</strong> User's</h2>
+          <p className='my-4'>BrainCheck: Your All-in-One Mobile Solution for Early Detection and Health Insights, Empowering You to Take Control of Your Well-being.</p>
           <button onClick={gotToSignUp} className='btn btn-success rounded w-50 '>Sign Up Now!</button>
         </div>
-        <div className=' p-3'>
+        <div data-aos="fade-left" className=' p-3'>
           <img className='img-fluid' src={img} alt="Bank Image" />
         </div>
       </div>
-      <div className="container my-3 row">
-        <h2 className='text-center my-3'>Take your <strong>Brain Tumor Detection</strong> to the next level!</h2>
+      <div data-aos="fade-up" className="container my-3 row">
+        <h2 className='text-center my-3'>Take your <strong>Diagnosis</strong> to the next level!</h2>
         <div className="col-md-4 mb-4">
           <div className="card mx-auto rounded shadow p-3 border border-none" style={{ width: '25rem' }}>
             <img src={brain_tumar} className="card-img-top" alt='Brain Tumor Detection' />
@@ -39,7 +39,7 @@ function HomeInfo() {
           </div>
         </div>
 
-        <div className="col-md-4 mb-4">
+        <div  className="col-md-4 mb-4">
           <div className="card mx-auto rounded shadow p-3 border border-none" style={{ width: '25rem' }}>
             <img src={report} className="card-img-top" alt='Detailed Reporting' />
             <h4>Detailed Reporting</h4>

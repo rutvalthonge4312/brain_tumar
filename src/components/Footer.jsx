@@ -16,14 +16,14 @@ function Footer() {
             <div className="conatiner m-0 p-0">
                 <p className='hover m-0 p-0'>Copyright © 2024 by</p>
                 <br />
-                <p className='hover m-0 p-0'>ZilBank PVT,All rights reserved.</p>
+                <p className='hover m-0 p-0'>NeuroNova PVT,All rights reserved.</p>
             </div>
         </section>
         <section className='col-md-4 p-2'>
             <h6>Contact us</h6>
-            <p className='hover m-0 p-0'>ZilBank, Chatarapati complex, 2nd Floor, Barshi, Solapur 431411</p>
+            <p className='hover m-0 p-0'>NeuroNova, JM road, Pune, Pune 411005</p>
             <p className='hover m-0 p-0'>8308409390</p>
-            <p className='hover m-0 p-0'>hello@Yummyfood.com</p>
+            <p className='hover m-0 p-0'>contact@neuronova.com</p>
         </section>
         <section className='col-md-4 p-2'>
         <h6>Account</h6>
