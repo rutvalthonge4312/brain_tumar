@@ -5,9 +5,8 @@ import {
   CModalFooter,
   CButton,
 } from '@coreui/react';
-import imageTumor from '../../assetes/brainTumarActual.jpg';
 
-function BrainTumorReport({ visiblePin, setVisiblePin }) {
+function BrainTumorReport({ visiblePin, setVisiblePin,report }) {
   return (
     <div>
       <CModal
@@ -19,19 +18,24 @@ function BrainTumorReport({ visiblePin, setVisiblePin }) {
         <CModalBody>
           <div className="container text-center">
             <h4 className="mb-3 text-start">Brain Tumor Report</h4>
-            <p className='text-start'><strong>Patient Name:</strong> John Doe</p>
-            <p className='text-start'><strong>Date:</strong> 18th November 2024</p>
+            <p className='text-start'><strong>Patient Name:</strong> {report.patent_name}</p>
+            <p className='text-start'><strong>Date:</strong>{report.created_at}</p>
             <p className='text-start'>
-              This report highlights the diagnostic findings based on the 
-              imaging results. It includes a detailed analysis of the detected 
-              brain tumor, its size, location, and potential impact on the 
-              surrounding tissues.
+
+              <strong>Description:</strong>{report.patent_description}
             </p>
+            <div className='border border'> 
             <img 
-              src={imageTumor} 
-              className="img-fluid rounded my-3" 
-              alt="Brain Tumor Report" 
-            />
+                src={report.image}
+                style={{
+                  width: '300px',
+                  height: '300px',
+                  objectFit: 'contain',
+                }} 
+                className="img img-fluid rounded my-3 w-50" 
+                alt="Brain Tumor Report" 
+              />
+            </div>
             <p className="text-muted">
               Note: Please consult your physician for a comprehensive 
               interpretation of the findings.

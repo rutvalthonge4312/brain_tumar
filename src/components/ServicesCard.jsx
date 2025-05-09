@@ -6,6 +6,7 @@ import consult from '../assetes/consult.webp'
 import update from '../assetes/update.png'
 import CreditMoney from './modals/creditMoney';
 import { useNavigate } from 'react-router-dom';
+import ShowPopup from '../core/comman_components/Show_popup';
 
 
 const cardData = [
@@ -43,6 +44,8 @@ const cardData = [
 function ServicesCard() {
     const [index, setIndex] = useState(0);
     const [visibleTrasaction, setVisibleTrasaction] = useState(false)
+    const [showPopup, setShowPopup] = useState(false)
+    const [alertMessage, setAlertMessage] = useState(" ")
     const handlePrev = () => {
         const newIndex = index === 0 ? cardData.length - 1 : index - 1;
         setIndex(newIndex);
@@ -63,6 +66,8 @@ function ServicesCard() {
     return (
         <div className="carousel-container  mt-3 p-4" >
             <CreditMoney visiblePin={visibleTrasaction} setVisiblePin={setVisibleTrasaction} />
+            <ShowPopup visible={showPopup} setVisible={setShowPopup} message={alertMessage} />
+            
             <button className="carousel-control prev" onClick={handlePrev}>‹</button>
             <div className="carousel-inner  d-flex justify-content-center align-items-center p-5  p-5">
                 {visibleCards.map((card, i) => (
@@ -85,6 +90,10 @@ function ServicesCard() {
                                     }
                                     else if(card.stateChangeVariable=='reports'){
                                         navigate('/report-card')
+                                    }
+                                    else if(card.stateChangeVariable=='consult'){
+                                        setShowPopup(true)
+                                        setAlertMessage("This feature is not available yet. Please check back later.")
                                     }
                                 }}
                                 >{card.buttonText}</button>

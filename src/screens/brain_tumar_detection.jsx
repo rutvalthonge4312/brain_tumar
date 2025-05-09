@@ -7,12 +7,22 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import api from '../api/api';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 function BrainTumorDetection() {
     const navigate = useNavigate();
-
+    const [selectedImages, setSelectedImages] = useState([]);
     const [visible, setVisible] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [formFields, setFormFields] = useState({
+        patent_name: '',
+        patent_number: '',
+        patent_description: '',
+        brain_tumar: false,
+        brain_tumar_type: '',
+      });
 
     const containerAnimation = {
         hidden: { opacity: 0, y: 50 },
@@ -36,6 +46,45 @@ function BrainTumorDetection() {
         setVisible(true); // Show modal on initial load
     }, []);
 
+    function onImagesSelected({ imageData }) {
+        setSelectedImages(imageData);
+    }
+    const handleImageSubmit = () => {
+        if (selectedImages.length === 0) {
+          toast.error("Please select at least one image.");
+          return;
+        }
+    
+        const formData = new FormData();
+        formData.append("patent_name", "Some Patent"); // Replace with dynamic values
+        formData.append("patent_number", "12345");
+        formData.append("patent_description", "Description here...");
+        formData.append("brain_tumar", false);
+        formData.append("brain_tumar_type", "None");
+        formData.append("date", Date.now());
+    
+        formData.append("image", selectedImages[0]); // Only sending first image
+    
+        setLoading(true);
+    
+        api.post("/record/create/", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+          .then((response) => {
+            setSelectedImages([]);
+            // alert(response.data.message)
+            toast.success(response.data.message);
+          })
+          .catch((error) => {
+            toast.error(error.response?.data?.message || "Upload failed");
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+    };
+   
     return (
         <motion.div
             initial="hidden"
@@ -45,6 +94,7 @@ function BrainTumorDetection() {
         >
             <UserNavbar />
             <DisclaimerModal visible={visible} setVisible={setVisible} />
+            <ToastContainer />
             <div className="back-arrow position-absolute top-5 start-0 p-3">
                 <FontAwesomeIcon icon={faArrowLeft} size="2x" onClick={() => navigate(-1)} style={{ cursor: 'pointer' }} />
             </div>
@@ -76,16 +126,25 @@ function BrainTumorDetection() {
                             </li>
                         </ul>
 
-                        <div className="text-center">
-                            <ImageForm />
+                        <div className="text-center border border-black p-3 rounded">
+                            <ImageForm  onSubmit={onImagesSelected}/>
 
                             <motion.button
                                 className="btn btn-success mt-3"
                                 variants={buttonAnimation}
                                 initial="initial"
                                 animate=""
+                                onClick={handleImageSubmit}
                             >
-                                Upload For Detection
+                                {loading ? (
+                                    <div className="container d-flex justify-content-center align-items-center">
+                                        <div className="spinner-border text-light" role="status">
+                                            <span className="visually-hidden">Uploading...</span>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    'Upload For Detection'
+                                )}
                             </motion.button>
                         </div>
                     </div>
@@ -95,6 +154,7 @@ function BrainTumorDetection() {
                         variants={imageAnimation}
                         initial="initial"
                         animate="animate"
+                        // onClick={handleSubmit}
                     >
                         <img
                             src={brainImage}

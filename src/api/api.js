@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const api = axios.create({
     // baseURL: 'Update PROD Url',
-    baseURL:'http://localhost:8000/',
+    baseURL:'http://127.0.0.1:8000/',
  });
 
 

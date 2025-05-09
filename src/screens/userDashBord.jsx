@@ -68,7 +68,8 @@ function UserDashBord() {
             </div>
             <div className="container p-1">
                     <h3 className='m-3'>Checkout the Following <strong>Services</strong>....</h3>
-                    <AdminServicesCard />
+                    {/* <AdminServicesCard /> */}
+                    <ServicesCard />
                 </div>
             <Footer />
         </div>
